@@ -3,32 +3,10 @@ import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
 import "./App.css";
+import Spotify from "../../util/Spotify";
 
 function App() {
-  const [searchResults, setSearchResults] = useState([
-    {
-      uri: "1",
-      name: "An",
-      artist: "ba",
-      album: "ca",
-      id: 1,
-    },
-    {
-      uri: "2",
-      name: "nA",
-      artist: "ab",
-      album: "ac",
-      id: 2,
-    },
-    {
-      uri: "3",
-      name: "NA",
-      artist: "Ab",
-      album: "Ac",
-      id: 3,
-    },
-  ]);
-  // console.log("app", searchResults);
+  const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -55,8 +33,10 @@ function App() {
     return uris;
   }
 
-  function search(term) {
-    console.log(term);
+  async function search(term) {
+    const results = await Spotify.search(term);
+    console.log("results", results);
+    setSearchResults(results);
   }
 
   return (
