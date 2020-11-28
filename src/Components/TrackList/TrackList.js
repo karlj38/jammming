@@ -3,16 +3,11 @@ import "./TrackList.css";
 import Track from "../Track/Track";
 
 function TrackList(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="TrackList">
       {props.results.map((result) => (
-        <Track
-          key={result.id}
-          name={result.name}
-          artist={result.artist}
-          album={result.album}
-        />
+        <Track track={result} key={result.id} addTrack={props.addTrack} />
       ))}
     </div>
   );

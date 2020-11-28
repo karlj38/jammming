@@ -5,7 +5,7 @@ import "./Playlist.css";
 function Playlist(props) {
   return (
     <div className="Playlist">
-      <input value={props.playlistName} />
+      <input defaultValue={props.playlistName} />
       <TrackList results={props.playlistTracks} />
       <button className="Playlist-save">SAVE TO SPOTIFY</button>
     </div>

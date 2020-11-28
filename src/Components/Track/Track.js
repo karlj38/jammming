@@ -3,19 +3,25 @@ import "./Track.css";
 
 function Track(props) {
   function renderAction() {
-    let isRemoval = false;
-    return isRemoval ? "-" : "+";
+    return props.isRemoval ? "-" : "+";
   }
   // console.log(props);
+
+  function onAdd({ target }) {
+    props.addTrack(props.track);
+  }
+
   return (
     <div className="Track">
       <div className="Track-information">
-        <h3>{props.name}</h3>
+        <h3>{props.track.name}</h3>
         <p>
-          {props.artist} | {props.album}
+          {props.track.artist} | {props.track.album}
         </p>
       </div>
-      <button className="Track-action">{renderAction()}</button>
+      <button className="Track-action" onClick={onAdd}>
+        {renderAction()}
+      </button>
     </div>
   );
 }

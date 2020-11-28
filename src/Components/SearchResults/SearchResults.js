@@ -6,7 +6,11 @@ function SearchResults(props) {
   return (
     <div className="SearchResults">
       <h2>Results</h2>
-      <TrackList results={props.results} />
+      <TrackList
+        results={props.results}
+        addTrack={props.addTrack}
+        isRemoval={false}
+      />
     </div>
   );
 }
