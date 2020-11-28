@@ -7,21 +7,24 @@ import "./App.css";
 function App() {
   const [searchResults, setSearchResults] = useState([
     {
-      name: "A",
-      artist: "b",
-      album: "c",
+      uri: "1",
+      name: "An",
+      artist: "ba",
+      album: "ca",
       id: 1,
     },
     {
-      name: "A",
-      artist: "b",
-      album: "c",
+      uri: "2",
+      name: "nA",
+      artist: "ab",
+      album: "ac",
       id: 2,
     },
     {
-      name: "A",
-      artist: "b",
-      album: "c",
+      uri: "3",
+      name: "NA",
+      artist: "Ab",
+      album: "Ac",
       id: 3,
     },
   ]);
@@ -45,6 +48,12 @@ function App() {
     setPlaylistName(name);
   }
 
+  function savePlaylist() {
+    const uris = playlistTracks.map((track) => track.uri);
+    console.log(uris);
+    return uris;
+  }
+
   return (
     <div>
       <h1>
@@ -59,6 +68,7 @@ function App() {
             playlistTracks={playlistTracks}
             removeTrack={removeTrack}
             updatePlaylistName={updatePlaylistName}
+            savePlaylist={savePlaylist}
           />
         </div>
       </div>

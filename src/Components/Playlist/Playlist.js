@@ -19,7 +19,9 @@ function Playlist(props) {
         removeTrack={props.removeTrack}
         isRemoval={true}
       />
-      <button className="Playlist-save">SAVE TO SPOTIFY</button>
+      <button className="Playlist-save" onClick={props.savePlaylist}>
+        SAVE TO SPOTIFY
+      </button>
     </div>
   );
 }
