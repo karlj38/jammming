@@ -7,8 +7,12 @@ function Track(props) {
   }
   // console.log(props);
 
-  function onAdd({ target }) {
+  function onAdd() {
     props.addTrack(props.track);
+  }
+
+  function onRemove() {
+    props.removeTrack(props.track);
   }
 
   return (
@@ -19,7 +23,10 @@ function Track(props) {
           {props.track.artist} | {props.track.album}
         </p>
       </div>
-      <button className="Track-action" onClick={onAdd}>
+      <button
+        className="Track-action"
+        onClick={props.isRemoval ? onRemove : onAdd}
+      >
         {renderAction()}
       </button>
     </div>
