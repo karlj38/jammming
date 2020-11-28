@@ -1,12 +1,27 @@
 import React from "react";
 import "./SearchBar.css";
 
-function SearchBar() {
+function SearchBar(props) {
+  function search(event) {
+    event.preventDefault();
+    props.search(props.searchTerm);
+  }
+
+  function handleChange({ target }) {
+    props.setSearchTerm(target.value);
+  }
+
   return (
-    <div className="SearchBar">
-      <input placeholder="Enter A Song, Album, or Artist" />
-      <button className="SearchButton">SEARCH</button>
-    </div>
+    <form className="SearchBar" onSubmit={search}>
+      <input
+        placeholder="Enter A Song, Album, or Artist"
+        value={props.searchTerm}
+        onChange={handleChange}
+      />
+      <button type="submit" className="SearchButton">
+        SEARCH
+      </button>
+    </form>
   );
 }
 

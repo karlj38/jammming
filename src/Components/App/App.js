@@ -31,6 +31,7 @@ function App() {
   // console.log("app", searchResults);
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   function addTrack(trackToAdd) {
     if (!playlistTracks.find((track) => track.id === trackToAdd.id)) {
@@ -54,13 +55,21 @@ function App() {
     return uris;
   }
 
+  function search(term) {
+    console.log(term);
+  }
+
   return (
     <div>
       <h1>
         Ja<span className="highlight">mmm</span>ing
       </h1>
       <div className="App">
-        <SearchBar />
+        <SearchBar
+          search={search}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
         <div className="App-playlist">
           <SearchResults results={searchResults} addTrack={addTrack} />
           <Playlist
