@@ -1,5 +1,5 @@
 import client from "./client";
-const host = "http://localhost:3000/";
+const host = "https://github.com/karlj38/jammming/";
 const redirect = `https://accounts.spotify.com/authorize?client_id=${client}&response_type=token&scope=playlist-modify-public&redirect_uri=${host}`;
 
 // let token = "";
