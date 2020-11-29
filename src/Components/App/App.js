@@ -12,6 +12,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, SetToken] = useState("");
+  const [searchOption, setSearchOption] = useState("track");
 
   document.addEventListener("DOMContentLoaded", () => {
     let newToken = Spotify.getToken();
@@ -46,8 +47,8 @@ function App() {
     setSearchTerm("");
   }
 
-  async function search() {
-    const results = await Spotify.search(searchTerm, token);
+  async function search(option) {
+    const results = await Spotify.search(searchTerm, option, token);
     setSearchResults(results);
   }
 
@@ -64,6 +65,8 @@ function App() {
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
           Spotify={Spotify}
+          searchOption={searchOption}
+          setSearchOption={setSearchOption}
         />
         <div
           className="App-playlist"
@@ -73,6 +76,7 @@ function App() {
             results={searchResults}
             addTrack={addTrack}
             isLoggedIn={isLoggedIn}
+            searchOption={searchOption}
           />
           <Playlist
             playlistName={playlistName}

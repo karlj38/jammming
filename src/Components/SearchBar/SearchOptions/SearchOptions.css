@@ -1,0 +1,10 @@
+.SearchOption {
+  padding: 5px;
+  width: 5rem;
+  margin: 10px 5px 30px;
+  text-transform: uppercase;
+}
+
+.active {
+  background-color: rgba(108, 65, 233, 0.7);
+}

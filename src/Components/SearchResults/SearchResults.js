@@ -1,11 +1,16 @@
 import React from "react";
 import TrackList from "../TrackList/TrackList";
+import "./SearchResults.css";
 
 function SearchResults(props) {
-  // console.log("search", props.results);
   return (
     <div className="SearchResults">
-      <h2>Search Results</h2>
+      <h2>
+        Search Results by{" "}
+        <span style={{ textTransform: "capitalize" }}>
+          {props.searchOption}
+        </span>
+      </h2>
       <TrackList
         results={props.results}
         addTrack={props.addTrack}

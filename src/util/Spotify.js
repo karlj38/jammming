@@ -32,16 +32,19 @@ let Spotify = {
     }
   },
 
-  async search(term, token) {
+  async search(term, option, token) {
     if (!term || !token) {
       return [];
     }
     let tracks = [];
-    await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    await fetch(
+      `https://api.spotify.com/v1/search?type=track&q=${option}:${term}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then(
         (response) => {
           if (response.ok) {
