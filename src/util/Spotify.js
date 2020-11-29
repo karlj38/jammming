@@ -1,4 +1,4 @@
-import client from "./client";
+const client = "f3920987d31f4b4e9261a062e26e13f1";
 const host = "http://localhost:3000/";
 const redirect = `https://accounts.spotify.com/authorize?client_id=${client}&response_type=token&scope=playlist-modify-public&redirect_uri=${host}`;
 
