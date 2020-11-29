@@ -7,22 +7,30 @@ function Playlist(props) {
     props.updatePlaylistName(target.value);
   }
 
+  function handleSubmit() {
+    props.savePlaylist();
+  }
+
   return (
-    <div className="Playlist">
+    <form className="Playlist" onSubmit={handleSubmit}>
       <input
         placeholder="Enter Playlist Name"
         value={props.playlistName}
         onChange={handleNameChange}
+        required={true}
       />
       <TrackList
         results={props.playlistTracks}
         removeTrack={props.removeTrack}
         isRemoval={true}
       />
-      <button className="Playlist-save" onClick={props.savePlaylist}>
+      <button
+        className="Playlist-save"
+        style={{ display: props.playlistTracks.length ? "" : "none" }}
+      >
         SAVE TO SPOTIFY
       </button>
-    </div>
+    </form>
   );
 }
 

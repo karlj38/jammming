@@ -10,6 +10,16 @@ function App() {
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, SetToken] = useState("");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    let newToken = Spotify.getToken();
+    if (newToken) {
+      SetToken(newToken);
+      setIsLoggedIn(true);
+    }
+  });
 
   function addTrack(trackToAdd) {
     if (!playlistTracks.find((track) => track.id === trackToAdd.id)) {
@@ -23,19 +33,21 @@ function App() {
     );
   }
 
-  function updatePlaylistName(name) {
-    setPlaylistName(name);
+  function updatePlaylistName(newName) {
+    setPlaylistName(newName);
   }
 
-  function savePlaylist() {
+  async function savePlaylist() {
     const uris = playlistTracks.map((track) => track.uri);
-    console.log(uris);
-    return uris;
+    await Spotify.save(playlistName, uris, token);
+    setPlaylistName("");
+    setPlaylistTracks([]);
+    setSearchResults([]);
+    setSearchTerm("");
   }
 
-  async function search(term) {
-    const results = await Spotify.search(term);
-    console.log("results", results);
+  async function search() {
+    const results = await Spotify.search(searchTerm, token);
     setSearchResults(results);
   }
 
@@ -49,15 +61,27 @@ function App() {
           search={search}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          Spotify={Spotify}
         />
-        <div className="App-playlist">
-          <SearchResults results={searchResults} addTrack={addTrack} />
+        <div
+          className="App-playlist"
+          style={{ display: searchResults.length ? "" : "none" }}
+        >
+          <SearchResults
+            results={searchResults}
+            addTrack={addTrack}
+            isLoggedIn={isLoggedIn}
+          />
           <Playlist
             playlistName={playlistName}
             playlistTracks={playlistTracks}
             removeTrack={removeTrack}
             updatePlaylistName={updatePlaylistName}
             savePlaylist={savePlaylist}
+            isLoggedIn={isLoggedIn}
+            searchResults={SearchResults}
           />
         </div>
       </div>
