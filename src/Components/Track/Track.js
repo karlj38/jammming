@@ -4,7 +4,6 @@ import "./Track.css";
 
 function Track(props) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isInPlaylist, setIsInPlaylist] = useState(false);
 
   function renderAction() {
     return props.isRemoval ? "-" : "+";
@@ -12,12 +11,10 @@ function Track(props) {
 
   function onAdd() {
     props.addTrack(props.track);
-    setIsInPlaylist(true);
   }
 
   function onRemove() {
     props.removeTrack(props.track);
-    setIsInPlaylist(false);
   }
 
   function preview() {
