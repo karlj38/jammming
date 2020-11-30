@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/jammming/static/css/main.ee8e67a3.chunk.css",
-    "main.js": "/jammming/static/js/main.da9989cf.chunk.js",
-    "main.js.map": "/jammming/static/js/main.da9989cf.chunk.js.map",
+    "main.css": "/jammming/static/css/main.73e81a5c.chunk.css",
+    "main.js": "/jammming/static/js/main.c8a24614.chunk.js",
+    "main.js.map": "/jammming/static/js/main.c8a24614.chunk.js.map",
     "runtime-main.js": "/jammming/static/js/runtime-main.b00b8394.js",
     "runtime-main.js.map": "/jammming/static/js/runtime-main.b00b8394.js.map",
     "static/js/2.5249fc0b.chunk.js": "/jammming/static/js/2.5249fc0b.chunk.js",
     "static/js/2.5249fc0b.chunk.js.map": "/jammming/static/js/2.5249fc0b.chunk.js.map",
     "index.html": "/jammming/index.html",
-    "static/css/main.ee8e67a3.chunk.css.map": "/jammming/static/css/main.ee8e67a3.chunk.css.map",
+    "static/css/main.73e81a5c.chunk.css.map": "/jammming/static/css/main.73e81a5c.chunk.css.map",
     "static/js/2.5249fc0b.chunk.js.LICENSE.txt": "/jammming/static/js/2.5249fc0b.chunk.js.LICENSE.txt",
     "static/media/App.css": "/jammming/static/media/background_photo_desktop.5f5fe555.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.b00b8394.js",
     "static/js/2.5249fc0b.chunk.js",
-    "static/css/main.ee8e67a3.chunk.css",
-    "static/js/main.da9989cf.chunk.js"
+    "static/css/main.73e81a5c.chunk.css",
+    "static/js/main.c8a24614.chunk.js"
   ]
 }
