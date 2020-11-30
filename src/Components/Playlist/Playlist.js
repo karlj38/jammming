@@ -7,7 +7,8 @@ function Playlist(props) {
     props.updatePlaylistName(target.value);
   }
 
-  function handleSubmit() {
+  function handleSubmit(event) {
+    event.preventDefault();
     props.savePlaylist();
   }
 
@@ -27,6 +28,8 @@ function Playlist(props) {
       <button
         className="Playlist-save"
         style={{ display: props.playlistTracks.length ? "" : "none" }}
+        type="submit"
+        // onClick={handleClick}
       >
         SAVE TO SPOTIFY
       </button>
