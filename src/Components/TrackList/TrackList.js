@@ -14,6 +14,7 @@ function TrackList(props) {
           addTrack={props.addTrack}
           isRemoval={props.isRemoval}
           removeTrack={props.removeTrack}
+          playlistTracks={props.playlistTracks}
         />
       ))}
     </div>

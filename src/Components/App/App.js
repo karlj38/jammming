@@ -77,6 +77,7 @@ function App() {
             addTrack={addTrack}
             isLoggedIn={isLoggedIn}
             searchOption={searchOption}
+            playlistTracks={playlistTracks}
           />
           <Playlist
             playlistName={playlistName}

@@ -4,16 +4,20 @@ import "./Track.css";
 
 function Track(props) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isInPlaylist, setIsInPlaylist] = useState(false);
+
   function renderAction() {
     return props.isRemoval ? "-" : "+";
   }
 
   function onAdd() {
     props.addTrack(props.track);
+    setIsInPlaylist(true);
   }
 
   function onRemove() {
     props.removeTrack(props.track);
+    setIsInPlaylist(false);
   }
 
   function preview() {
@@ -26,8 +30,20 @@ function Track(props) {
     }
   }
 
+  function isItInPlaylist() {
+    let result = props.playlistTracks.find(
+      (track) => track.id === props.track.id
+    );
+    return result;
+  }
+
   return (
-    <div className="Track">
+    <div
+      className="Track"
+      style={{
+        display: !props.isRemoval && isItInPlaylist() ? "none" : null,
+      }}
+    >
       <div className="Track-information">
         <h3>{props.track.name}</h3>
         <p>

@@ -24,6 +24,7 @@ function Playlist(props) {
         results={props.playlistTracks}
         removeTrack={props.removeTrack}
         isRemoval={true}
+        playlistTracks={props.playlistTracks}
       />
       <button
         className="Playlist-save"
