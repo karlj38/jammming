@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { FiPlay, FiPause } from "react-icons/fi";
 import "./Track.css";
 
 function Track(props) {
+  const [isPlaying, setIsPlaying] = useState(false);
   function renderAction() {
     return props.isRemoval ? "-" : "+";
   }
-  // console.log(props);
 
   function onAdd() {
     props.addTrack(props.track);
@@ -13,6 +14,16 @@ function Track(props) {
 
   function onRemove() {
     props.removeTrack(props.track);
+  }
+
+  function preview() {
+    if (!isPlaying) {
+      document.getElementById(props.id).play();
+      setIsPlaying(true);
+    } else {
+      document.getElementById(props.id).pause();
+      setIsPlaying(false);
+    }
   }
 
   return (
@@ -23,6 +34,17 @@ function Track(props) {
           {props.track.artist} | {props.track.album}
         </p>
       </div>
+      {!props.isRemoval && props.track.preview && !isPlaying && (
+        <FiPlay onClick={preview} />
+      )}
+      {!props.isRemoval && props.track.preview && isPlaying && (
+        <FiPause onClick={preview} />
+      )}
+      <audio
+        id={props.id}
+        src={props.track.preview}
+        className="preview"
+      ></audio>
       <button
         className="Track-action"
         onClick={props.isRemoval ? onRemove : onAdd}

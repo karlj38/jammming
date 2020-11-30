@@ -10,6 +10,7 @@ function TrackList(props) {
         <Track
           track={result}
           key={result.id}
+          id={result.id}
           addTrack={props.addTrack}
           isRemoval={props.isRemoval}
           removeTrack={props.removeTrack}
